@@ -35,7 +35,7 @@ func (m *UserModel) Get(id int) (*models.User, error) {
 	return &user, nil
 }
 
-func (m *UserModel) Latest() ([]*models.User, error) {
+func (m *UserModel) Oldest() ([]*models.User, error) {
 	query := `SELECT id, name, surname, age FROM users ORDER BY age DESC LIMIT 10`
 	rows, err := m.Db.Query(query)
 	if err != nil {

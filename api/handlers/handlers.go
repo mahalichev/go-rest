@@ -19,7 +19,7 @@ type Parent struct {
 func UsersList(app *config.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
-		users, err := app.Users.Latest()
+		users, err := app.Users.Oldest()
 		if err != nil {
 			app.ErrLog.Print(err)
 			http.NotFound(w, r)
